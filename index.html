@@ -27,7 +27,7 @@ const setStatus=(s,live=false)=>{$('status').textContent=s;$('dot').className=li
 const toast=s=>{const el=$('toast');el.textContent=s;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2200)};
 const setBusy=v=>{state.loading=v;$('generate').disabled=v;$('generate').innerHTML=v?'<span class="spin">◌</span> Creating…':'✦ Generate email'};
 async function request(path,options={}) {
- const headers={Accept:'application/ld+json',...(options.body?{'Content-Type':'application/ld+json'}:{}),...(state.token?{Authorization:'Bearer '+state.token}:{}),...(options.headers||{})};
+ const headers={Accept:'application/ld+json',...(options.body?{'Content-Type':'application/json'}:{}),...(state.token?{Authorization:'Bearer '+state.token}:{}),...(options.headers||{})};
  const response=await fetch(API+path,{...options,headers});
  if(!response.ok){let message='Request failed ('+response.status+')';try{const data=await response.json();message=data['hydra:description']||data.message||message}catch{}throw new Error(message)}
  if(response.status===204)return null;return response.json();
