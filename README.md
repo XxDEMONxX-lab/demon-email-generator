@@ -30,7 +30,7 @@ This repository includes a root-level `Dockerfile` so it can be deployed as a Re
 5. Set **Dockerfile Path** to `./Dockerfile`.
 6. Save and deploy.
 
-The container uses Nginx to serve `index.html) on the port Render provides through its container networking. No start command, environment variables, or database are required.
+The container uses Nginx to serve `index.html` on the port Render provides through its container networking. No start command, environment variables, or database are required.
 
 Alternatively, you can deploy it as a Render **Static Site** with the publish directory set to `.`; no Dockerfile is needed for that service type.
 
